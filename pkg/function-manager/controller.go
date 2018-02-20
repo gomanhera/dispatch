@@ -61,6 +61,11 @@ func (h *funcEntityHandler) Add(obj entitystore.Entity) (err error) {
 		return
 	}
 
+	log.Debugf("[KJB]before if err := h.FaaS.Create(e, &functions.Exec{")
+	log.Debugf("[KJB]e.Code : %s", e.Code)
+	log.Debugf("[KJB]e.Main : %s", e.Main)
+	log.Debugf("[KJB]img.DockerURL : %s", img.DockerURL)
+
 	if err := h.FaaS.Create(e, &functions.Exec{
 		Code:     e.Code,
 		Main:     e.Main,
